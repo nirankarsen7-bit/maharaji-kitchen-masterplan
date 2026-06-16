@@ -588,6 +588,8 @@ function CouponBanner() {
                 Valid for dine-in, table reservations, and every event package on our menu.
               </p>
 
+              <MockCoupon />
+
               <div className="my-8 sm:my-9">
                 <CouponCountdown />
               </div>
