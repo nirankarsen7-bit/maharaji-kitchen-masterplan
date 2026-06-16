@@ -1,16 +1,26 @@
 name = "maharaji-kitchen"
-main = "dist/server/index.mjs"
+main = "dist/server/server.js"
 compatibility_date = "2025-06-01"
 compatibility_flags = ["nodejs_compat"]
 
-# Production environment
+[assets]
+directory = "dist/client"
+binding = "ASSETS"
+
 [env.production]
 name = "maharaji-kitchen"
+[env.production.assets]
+directory = "dist/client"
+binding = "ASSETS"
 
-# Staging / non-production branch environment
 [env.staging]
 name = "maharaji-kitchen-staging"
+[env.staging.assets]
+directory = "dist/client"
+binding = "ASSETS"
 
-# Preview / dev branch environment
 [env.preview]
 name = "maharaji-kitchen-preview"
+[env.preview.assets]
+directory = "dist/client"
+binding = "ASSETS"
