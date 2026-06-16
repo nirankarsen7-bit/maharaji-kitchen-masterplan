@@ -77,14 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Maharaji Kitchen — A Royal Family Restaurant in Nagrakata" },
+      { name: "description", content: "Maharaji Kitchen — Veg & Non-Veg fine dining in Nagrakata, North Bengal. Reserve tables, book events, and claim today's exclusive discount coupon." },
+      { name: "author", content: "Maharaji Kitchen" },
+      { property: "og:title", content: "Maharaji Kitchen — The Art of Fine Dining" },
+      { property: "og:description", content: "Royal vegetarian & non-vegetarian feasts, signature event packages, and intimate celebrations in the heart of North Bengal." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
