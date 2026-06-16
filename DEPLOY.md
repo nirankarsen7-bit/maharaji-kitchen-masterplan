@@ -99,25 +99,7 @@ bun run wrangler:dev
 
 ---
 
-## 5. Environment Variables Setup (Cloudflare Dashboard)
-
-Cloudflare Dashboard → Workers & Pages → maharaji-kitchen → Settings → Variables mein add karein:
-
-### Required Variables:
-| Variable Name | Description | Example |
-|--------------|-------------|---------|
-| `VITE_SUPABASE_URL` | Supabase project URL | `https://xyz.supabase.co` |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase anon key | `eyJ...` |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server-side only | `eyJ...` |
-
-**Important:**
-- Browser/client env vars (`VITE_*`) ko TanStack Start automatically inject karta hai
-- Server-only vars (`SUPABASE_SERVICE_ROLE_KEY`) ko `.handler()` ke andar `process.env` se access karein
-- Secrets ko Cloudflare dashboard ke "Variables" section mein add karein, code mein nahi
-
----
-
-## 6. Custom Domain Attach Karna (Optional)
+## 5. Custom Domain Attach Karna (Optional)
 
 1. Cloudflare Dashboard → Workers → maharaji-kitchen → Triggers → Custom Domains
 2. Apna domain add karein (e.g., `maharajikitchen.com`)
@@ -125,7 +107,7 @@ Cloudflare Dashboard → Workers & Pages → maharaji-kitchen → Settings → V
 
 ---
 
-## 7. Troubleshooting
+## 6. Troubleshooting
 
 ### Error: "No such module"
 ```bash
@@ -148,12 +130,12 @@ bunx wrangler login
 ```bash
 # Full clean rebuild
 rm -rf dist node_modules/.cache .wrangler
-cd dist/server && wrangler deploy
+bun run build
 ```
 
 ---
 
-## 8. Quick Reference Commands
+## 7. Quick Reference Commands
 
 | Task | Command |
 |------|---------|
@@ -168,7 +150,7 @@ cd dist/server && wrangler deploy
 
 ---
 
-## 9. Architecture Notes
+## 8. Architecture Notes
 
 - **Framework:** TanStack Start v1 + React 19
 - **Build Tool:** Vite 8 + Nitro (Cloudflare Module preset)
@@ -176,5 +158,6 @@ cd dist/server && wrangler deploy
 - **Worker Output:** `dist/server/index.mjs`
 - **Static Assets:** `dist/client/` (auto-bound via ASSETS binding)
 - **Node.js compat:** Enabled via `nodejs_compat` flag
+- **Backend:** Koi database ya auth nahi hai — sirf static promotional website
 
 Agar koi aur help chahiye toh batayein! 🚀
