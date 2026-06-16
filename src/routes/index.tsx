@@ -248,33 +248,58 @@ function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-2" : "py-4"
+        scrolled ? "py-1.5" : "py-3"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-3 sm:px-6">
+      <div className="w-full px-2 sm:px-4 lg:px-6">
         <div
-          className={`grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-full border border-gold/15 px-4 py-2.5 transition-all duration-500 sm:px-6 ${
+          className={`relative grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 overflow-hidden rounded-full border border-gold/25 px-3 py-2 transition-all duration-500 sm:px-5 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:gap-6 ${
             scrolled ? "glass-strong shadow-elegant" : "glass"
           }`}
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, oklch(0.18 0.04 25 / 0.55), oklch(0.14 0.03 25 / 0.55))",
+          }}
         >
-          <a href="#top" className="min-w-0 leading-tight">
-            <div className="truncate font-serif text-base text-gradient-gold sm:text-lg">
+          {/* shimmer line on top */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-6 top-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, oklch(0.79 0.14 85 / 0.7), transparent)",
+            }}
+          />
+          {/* glow corner accents */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -left-10 -top-10 h-24 w-24 rounded-full opacity-60 blur-2xl animate-pulse-glow"
+            style={{ background: "oklch(0.79 0.14 85 / 0.35)" }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -right-10 -bottom-10 h-24 w-24 rounded-full opacity-60 blur-2xl animate-pulse-glow"
+            style={{ background: "oklch(0.52 0.21 25 / 0.45)", animationDelay: "1.2s" }}
+          />
+
+          <a href="#top" className="relative min-w-0 leading-tight">
+            <div className="truncate font-serif text-base shimmer-text sm:text-lg">
               Maharaji Kitchen
             </div>
-            <div className="truncate text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              A Family Restaurant
+            <div className="truncate text-[9px] uppercase tracking-[0.32em] text-muted-foreground sm:text-[10px]">
+              ✦ A Royal Family Restaurant ✦
             </div>
           </a>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="relative hidden items-center gap-1 lg:flex">
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="group relative py-2 text-sm font-medium text-foreground/85 transition-colors hover:text-gold"
+                className="group relative rounded-full px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-foreground/85 transition-all duration-300 hover:text-gold"
               >
-                {item.label}
-                <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+                <span className="relative z-10">{item.label}</span>
+                <span className="absolute inset-0 -z-0 rounded-full border border-gold/0 bg-gold/0 transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold/10" />
               </a>
             ))}
           </nav>
@@ -283,15 +308,128 @@ function Header() {
             href={wa(MESSAGES.reserveTable())}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-royal min-h-11 !px-4 !py-2 text-[11px] sm:!px-5 sm:text-xs"
+            className="btn-royal group relative min-h-9 !px-3.5 !py-1.5 text-[11px] sm:!px-4 sm:text-xs"
           >
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">Reserve Now</span>
-            <span className="sm:hidden">Book</span>
+            <span
+              aria-hidden
+              className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100 animate-pulse-glow"
+              style={{ background: "oklch(0.79 0.14 85 / 0.25)" }}
+            />
+            <Crown className="relative h-3.5 w-3.5" />
+            <span className="relative hidden sm:inline">Reserve Now</span>
+            <span className="relative sm:hidden">Book</span>
+            <ArrowRight className="relative h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
           </a>
         </div>
       </div>
     </header>
+  );
+}
+
+function MockCoupon() {
+  return (
+    <div className="relative mx-auto mt-8 max-w-2xl sm:mt-10">
+      {/* glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-6 rounded-[2.2rem] opacity-70 blur-2xl animate-pulse-glow"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, oklch(0.79 0.14 85 / 0.35), transparent 70%)",
+        }}
+      />
+      <div
+        className="relative animate-float-mid"
+        style={{ transform: "perspective(1200px) rotateX(2deg)" }}
+      >
+        {/* coupon body */}
+        <div
+          className="relative flex flex-col items-stretch overflow-hidden rounded-2xl border border-gold/40 shadow-crimson sm:flex-row"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.32 0.12 25) 0%, oklch(0.22 0.08 25) 50%, oklch(0.18 0.06 25) 100%)",
+          }}
+        >
+          {/* shimmer sweep */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-60"
+            style={{
+              background:
+                "linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 0.18) 50%, transparent 70%)",
+              backgroundSize: "200% 100%",
+              animation: "shimmer-text 4.5s linear infinite",
+            }}
+          />
+          {/* perforation notches */}
+          <span
+            aria-hidden
+            className="absolute -left-3 top-1/2 hidden h-6 w-6 -translate-y-1/2 rounded-full bg-background sm:block"
+          />
+          <span
+            aria-hidden
+            className="absolute -right-3 top-1/2 hidden h-6 w-6 -translate-y-1/2 rounded-full bg-background sm:block"
+          />
+
+          {/* Left brand block */}
+          <div
+            className="relative flex flex-col items-center justify-center gap-2 border-b border-dashed border-gold/40 p-5 sm:border-b-0 sm:border-r sm:p-6"
+            style={{ background: "oklch(0.16 0.05 25 / 0.6)" }}
+          >
+            <Logo size={56} />
+            <div className="text-center font-serif text-sm text-gradient-gold leading-tight">
+              Maharaji
+              <br />
+              Kitchen
+            </div>
+            <div className="text-[8px] uppercase tracking-[0.28em] text-gold/70">
+              Royal Coupon
+            </div>
+          </div>
+
+          {/* Right value block */}
+          <div className="relative flex-1 px-5 py-5 text-center sm:px-7 sm:py-6 sm:text-left">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-[9px] uppercase tracking-[0.28em] text-gold">
+              <Sparkles className="h-3 w-3" /> Exclusive
+            </div>
+            <div className="mt-2 flex items-baseline justify-center gap-2 sm:justify-start">
+              <span
+                className="font-serif text-5xl leading-none sm:text-6xl shimmer-text"
+                style={{ letterSpacing: "-0.02em" }}
+              >
+                FLAT
+              </span>
+            </div>
+            <div className="-mt-1 flex items-baseline justify-center gap-1 sm:justify-start">
+              <span className="font-serif text-6xl leading-none text-gradient-gold sm:text-7xl">
+                25%
+              </span>
+              <span className="font-serif text-2xl text-gold/90">OFF</span>
+            </div>
+            <div className="mt-1 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              On Every Reservation & Event
+            </div>
+
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-2 border-t border-dashed border-gold/25 pt-3 sm:justify-start">
+              <span className="rounded-md border border-gold/30 bg-ink/40 px-2 py-1 font-mono text-[11px] tracking-[0.22em] text-gold">
+                CODE: MAHARAJI25
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Valid 7 days
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* tape / floating star */}
+        <span
+          aria-hidden
+          className="absolute -right-2 -top-2 grid h-12 w-12 place-items-center rounded-full border border-gold/60 bg-ink/80 text-gold shadow-crimson animate-spin-slow"
+        >
+          <Star className="h-5 w-5 fill-gold" />
+        </span>
+      </div>
+    </div>
   );
 }
 
