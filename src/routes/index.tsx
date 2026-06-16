@@ -342,6 +342,22 @@ function MockCoupon() {
         className="relative animate-float-mid"
         style={{ transform: "perspective(1200px) rotateX(2deg)" }}
       >
+        {/* Premium Ribbon */}
+        <div className="absolute -right-1 -top-3 z-20 sm:-right-2 sm:-top-4">
+          <div
+            className="relative flex items-center justify-center px-5 py-1.5 sm:px-6 sm:py-2"
+            style={{
+              background: "linear-gradient(135deg, oklch(0.79 0.14 85), oklch(0.72 0.16 75))",
+              boxShadow: "0 4px 15px oklch(0.55 0.12 75 / 0.45)",
+              clipPath: "polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0% 50%)",
+            }}
+          >
+            <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-ink sm:text-[10px]">
+              VIP Pass
+            </span>
+          </div>
+        </div>
+
         {/* coupon body */}
         <div
           className="relative flex flex-col items-stretch overflow-hidden rounded-2xl border border-gold/40 shadow-crimson sm:flex-row"
@@ -361,6 +377,7 @@ function MockCoupon() {
               animation: "shimmer-text 4.5s linear infinite",
             }}
           />
+
           {/* perforation notches */}
           <span
             aria-hidden
@@ -388,34 +405,51 @@ function MockCoupon() {
           </div>
 
           {/* Right value block */}
-          <div className="relative flex-1 px-5 py-5 text-center sm:px-7 sm:py-6 sm:text-left">
+          <div className="relative flex-1 px-5 py-6 text-center sm:px-7 sm:py-7 sm:text-left">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-2.5 py-0.5 text-[9px] uppercase tracking-[0.28em] text-gold">
-              <Sparkles className="h-3 w-3" /> Exclusive
-            </div>
-            <div className="mt-2 flex items-baseline justify-center gap-2 sm:justify-start">
-              <span
-                className="font-serif text-5xl leading-none sm:text-6xl shimmer-text"
-                style={{ letterSpacing: "-0.02em" }}
-              >
-                FLAT
-              </span>
-            </div>
-            <div className="-mt-1 flex items-baseline justify-center gap-1 sm:justify-start">
-              <span className="font-serif text-6xl leading-none text-gradient-gold sm:text-7xl">
-                25%
-              </span>
-              <span className="font-serif text-2xl text-gold/90">OFF</span>
-            </div>
-            <div className="mt-1 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              On Every Reservation & Event
+              <Sparkles className="h-3 w-3" /> Exclusive Offer
             </div>
 
-            <div className="mt-3 flex flex-wrap items-center justify-center gap-2 border-t border-dashed border-gold/25 pt-3 sm:justify-start">
-              <span className="rounded-md border border-gold/30 bg-ink/40 px-2 py-1 font-mono text-[11px] tracking-[0.22em] text-gold">
-                CODE: MAHARAJI25
+            <div className="mt-3">
+              <span className="font-serif text-xl leading-tight text-gradient-gold sm:text-2xl">
+                Special Discount
               </span>
-              <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Valid 7 days
+              <br />
+              <span className="font-serif text-lg leading-tight text-gold/90 sm:text-xl">
+                on any purchase
+              </span>
+            </div>
+
+            <div className="mt-4 space-y-2 text-left">
+              <div className="flex items-center gap-2 text-[11px] text-muted-foreground sm:text-xs">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold">
+                  <Star className="h-2.5 w-2.5 fill-gold" />
+                </span>
+                Valid on all menu items — Veg & Non-Veg
+              </div>
+              <div className="flex items-center gap-2 text-[11px] text-muted-foreground sm:text-xs">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold">
+                  <Utensils className="h-2.5 w-2.5" />
+                </span>
+                Dine-in, table reservations & events
+              </div>
+              <div className="flex items-center gap-2 text-[11px] text-muted-foreground sm:text-xs">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold">
+                  <Gift className="h-2.5 w-2.5" />
+                </span>
+                Instant claim via WhatsApp
+              </div>
+              <div className="flex items-center gap-2 text-[11px] text-muted-foreground sm:text-xs">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold">
+                  <Crown className="h-2.5 w-2.5" />
+                </span>
+                Redeem whenever you wish — no rush
+              </div>
+            </div>
+
+            <div className="mt-4 border-t border-dashed border-gold/25 pt-3 text-center sm:text-left">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-gold/80">
+                Limited availability — claim yours today
               </span>
             </div>
           </div>
@@ -424,7 +458,7 @@ function MockCoupon() {
         {/* tape / floating star */}
         <span
           aria-hidden
-          className="absolute -right-2 -top-2 grid h-12 w-12 place-items-center rounded-full border border-gold/60 bg-ink/80 text-gold shadow-crimson animate-spin-slow"
+          className="absolute -left-2 -bottom-2 grid h-12 w-12 place-items-center rounded-full border border-gold/60 bg-ink/80 text-gold shadow-crimson animate-spin-slow"
         >
           <Star className="h-5 w-5 fill-gold" />
         </span>
