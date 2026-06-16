@@ -1,0 +1,31 @@
+name = "maharaji-kitchen"
+main = "dist/server/index.mjs"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Static assets binding (auto-handled by Nitro, but keeping for reference)
+# [[assets]]
+# binding = "ASSETS"
+# directory = "dist/client"
+
+# Production environment
+[env.production]
+name = "maharaji-kitchen"
+
+# Staging / non-production branch environment
+[env.staging]
+name = "maharaji-kitchen-staging"
+
+# Preview / dev branch environment
+[env.preview]
+name = "maharaji-kitchen-preview"
+
+# KV binding example (agar caching ya data store chahiye toh Cloudflare dashboard se create karein)
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "your-kv-namespace-id"
+
+# R2 binding example (agar file storage chahiye toh)
+# [[r2_buckets]]
+# binding = "ASSETS_BUCKET"
+# bucket_name = "maharaji-assets"
