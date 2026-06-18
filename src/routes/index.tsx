@@ -1408,7 +1408,7 @@ function Footer() {
               Nagrakata, West Bengal
             </li>
             <li className="flex gap-3">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" /> +91 70764 30467
+              <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold" /> +91 85388 35512
             </li>
             <li className="flex gap-3">
               <Clock className="mt-0.5 h-4 w-4 shrink-0 text-gold" /> Daily · 11:00 AM — 11:00 PM
